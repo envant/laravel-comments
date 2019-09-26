@@ -12,8 +12,9 @@
     "homepage": "https://github.com/envant/comments",
     "keywords": ["Laravel", "Comments"],
     "require": {
-        "illuminate/support": "^5.8|^6.0",
-        "illuminate/database": "^5.8|^6.0"
+        "envant/helpers": "dev-master",
+        "illuminate/database": "^5.8|^6.0",
+        "illuminate/support": "^5.8|^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.0",
