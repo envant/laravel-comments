@@ -18,6 +18,13 @@ class Comment extends Model
     ];
 
     /** @var array */
+    protected $hidden = [
+        'model_id',
+        'model_type',
+        'is_approved',
+    ];
+
+    /** @var array */
     protected $casts = [
         'is_approved' => 'boolean',
     ];
