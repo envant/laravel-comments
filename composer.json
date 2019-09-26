@@ -36,5 +36,8 @@
                 "Envant\\Comments\\CommentsServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
