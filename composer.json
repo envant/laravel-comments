@@ -1,0 +1,40 @@
+{
+    "name": "envant/comments",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Boris Lepikhin",
+            "email": "lepikhinb@gmail.com",
+            "homepage": "https://envant.me"
+        }
+    ],
+    "homepage": "https://github.com/envant/comments",
+    "keywords": ["Laravel", "Comments"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Envant\\Comments\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Envant\\Comments\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Envant\\Comments\\CommentsServiceProvider"
+            ]
+        }
+    }
+}
