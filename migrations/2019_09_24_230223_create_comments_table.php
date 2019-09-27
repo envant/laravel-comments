@@ -13,13 +13,13 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         $userClass = Comment::getAuthModelName();
-        $usersTable = (new $userClass())->getTable();
+        $userModel = new $userClass();
 
-        Schema::create(Comment::getModel()->getTable(), function (Blueprint $table) use ($usersTable) {
+        Schema::create(Comment::getModel()->getTable(), function (Blueprint $table) use ($userModel) {
             $table->bigIncrements('id');
             $table->morphs('model');
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on($usersTable)->onDelete('cascade');
+            $table->foreign('user_id')->references($userModel->getKeyName())->on($userModel->getTable())->onDelete('cascade');
             $table->text('body');
             $table->boolean('is_approved');
             $table->timestamps();
