@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasComments
 {
+    protected static function bootHasComments()
+    {
+        // delete attached comments
+        static::deleting(function ($model) {
+            $model->comments()->delete();
+        });
+    }
+
     /**
      * Return all comments for this model.
      *
