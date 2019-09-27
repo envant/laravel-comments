@@ -9,6 +9,7 @@ use Envant\Comments\Requests\CreateRequest;
 use Envant\Comments\Requests\UpdateRequest;
 use Envant\Helpers\ModelMapper;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Response;
 
 class CommentController extends Controller
 {

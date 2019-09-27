@@ -177,8 +177,8 @@ class Comment extends Model
      */
     public static function getAuthModelName()
     {
-        if (config('attachments.user_model')) {
-            return config('attachments.user_model');
+        if (config('comments.user_model')) {
+            return config('comments.user_model');
         }
 
         if (!is_null(config('auth.providers.users.model'))) {

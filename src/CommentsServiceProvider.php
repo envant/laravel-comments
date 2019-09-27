@@ -60,7 +60,7 @@ class CommentsServiceProvider extends ServiceProvider
         // Publishing the configuration file.
         $this->publishes([
             __DIR__ . '/../config/comments.php' => config_path('comments.php'),
-        ], 'comments.config');
+        ], 'config');
 
         $this->publishes([
             __DIR__ . '/../migrations/' => database_path('migrations')
