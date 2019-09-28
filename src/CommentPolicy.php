@@ -2,7 +2,6 @@
 
 namespace Envant\Comments;
 
-use Envant\Comments\Comment;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,10 +12,10 @@ class CommentPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param Model|null $user
+     * @param \Illuminate\Database\Eloquent\Model|null $user
      * @return mixed
      */
-    public function viewAny(?Model $user)
+    public function viewAny(?Model $user): bool
     {
         return true;
     }
@@ -24,11 +23,11 @@ class CommentPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param Model|null $user
-     * @param Comment $comment
+     * @param \Illuminate\Database\Eloquent\Model|null $user
+     * @param \Envant\Comments\Comment $comment
      * @return mixed
      */
-    public function view(?Model $user, Comment $comment)
+    public function view(?Model $user, Comment $comment): bool
     {
         return true;
     }
@@ -36,10 +35,10 @@ class CommentPolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param Model|null $user
+     * @param \Illuminate\Database\Eloquent\Model|null $user
      * @return mixed
      */
-    public function create(?Model $user)
+    public function create(?Model $user): bool
     {
         return true;
     }
@@ -47,11 +46,11 @@ class CommentPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param Model|null $user
-     * @param Comment $comment
+     * @param \Illuminate\Database\Eloquent\Model|null $user
+     * @param \Envant\Comments\Comment $comment
      * @return mixed
      */
-    public function update(?Model $user, Comment $comment)
+    public function update(?Model $user, Comment $comment): bool
     {
         return $comment->user_id === $user->id;
     }
@@ -59,8 +58,8 @@ class CommentPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param Model|null $user
-     * @param Comment $comment
+     * @param \Illuminate\Database\Eloquent\Model|null $user
+     * @param \Envant\Comments\Comment $comment
      * @return mixed
      */
     public function delete(?Model $user, Comment $comment)
@@ -71,8 +70,8 @@ class CommentPolicy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param Model|null $user
-     * @param Comment $comment
+     * @param \Illuminate\Database\Eloquent\Model|null $user
+     * @param \Envant\Comments\Comment $comment
      * @return mixed
      */
     public function restore(?Model $user, Comment $comment)
@@ -83,8 +82,8 @@ class CommentPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param Model|null $user
-     * @param Comment $comment
+     * @param \Illuminate\Database\Eloquent\Model|null $user
+     * @param \Envant\Comments\Comment $comment
      * @return mixed
      */
     public function forceDelete(?Model $user, Comment $comment)

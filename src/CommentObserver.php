@@ -2,7 +2,6 @@
 
 namespace Envant\Comments;
 
-use Envant\Comments\Comment;
 use Envant\Comments\Events\CommentCreated;
 use Envant\Comments\Events\CommentUpdated;
 use Envant\Comments\Events\CommentDeleted;
@@ -13,7 +12,7 @@ class CommentObserver
     /**
      * Handle the comment "created" event
      *
-     * @param Comment $comment
+     * @param \Envant\Comments\Comment $comment
      * @return void
      */
     public function created(Comment $comment)
@@ -24,7 +23,7 @@ class CommentObserver
     /**
      * Handle the comment "updated" event
      *
-     * @param Comment $comment
+     * @param \Envant\Comments\Comment $comment
      * @return void
      */
     public function updated(Comment $comment)
@@ -35,7 +34,7 @@ class CommentObserver
     /**
      * Handle the comment "deleted" event
      *
-     * @param Comment $comment
+     * @param \Envant\Comments\Comment $comment
      * @return void
      */
     public function deleted(Comment $comment)

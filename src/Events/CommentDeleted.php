@@ -8,12 +8,14 @@ use Envant\Comments\Comment;
 class CommentDeleted
 {
     use SerializesModels;
+
+    /** @var \Envant\Comments\Comment  */
     public $comment;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param \Envant\Comments\Comment $comment
      */
     public function __construct(Comment $comment)
     {
