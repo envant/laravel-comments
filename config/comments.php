@@ -8,7 +8,9 @@ return [
     'routes' => [
         'enabled' => true,
         'controller' => Envant\Comments\CommentController::class,
-        'middleware' => 'auth:api',
+        'middleware' => [
+            'api', 'auth:api'
+        ],
         'prefix' => 'api',
         'policy' => [
             'enabled' => true,
