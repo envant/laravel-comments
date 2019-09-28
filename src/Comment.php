@@ -2,6 +2,7 @@
 
 namespace Envant\Comments;
 
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -61,7 +62,7 @@ class Comment extends Model
      *
      * @return string
      */
-    public function getTable()
+    public function getTable(): string
     {
         return config('comments.table');
     }
@@ -75,7 +76,7 @@ class Comment extends Model
     /**
      * Commenter
      * 
-     * @return BelongsTo|User
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo|\Illuminate\Contracts\Auth\Authenticatable
      */
     public function user(): BelongsTo
     {
@@ -85,7 +86,7 @@ class Comment extends Model
     /**
      * Related model
      *
-     * @return MorphTo
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function model(): MorphTo
     {
@@ -101,8 +102,8 @@ class Comment extends Model
     /**
      * Get all comments
      *
-     * @param Builder $query
-     * @return Builder
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeAll(Builder $query): Builder
     {
@@ -112,8 +113,8 @@ class Comment extends Model
     /**
      * Approved comments only
      *
-     * @param Builder $query
-     * @return Builder
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeApproved(Builder $query): Builder
     {
@@ -123,8 +124,8 @@ class Comment extends Model
     /**
      * Not approved comments only
      *
-     * @param Builder $query
-     * @return Builder
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePending(Builder $query): Builder
     {
@@ -140,7 +141,7 @@ class Comment extends Model
     /**
      * Approve comment
      *
-     * @return Comment
+     * @return \Envant\Comments\Comment
      */
     public function approve(): Comment
     {
@@ -153,7 +154,7 @@ class Comment extends Model
     /**
      * Disapprove comment
      *
-     * @return Comment
+     * @return \Envant\Comments\Comment
      */
     public function disapprove()
     {
@@ -175,7 +176,7 @@ class Comment extends Model
      * @return string
      * @throws Exception
      */
-    public static function getAuthModelName()
+    public static function getAuthModelName(): string 
     {
         if (config('comments.user_model')) {
             return config('comments.user_model');
