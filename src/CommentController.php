@@ -4,6 +4,7 @@ namespace Envant\Comments;
 
 use Illuminate\Routing\Controller;
 use Envant\Comments\Resources\CommentResource;
+use Envant\Comments\Requests\IndexRequest;
 use Envant\Comments\Requests\CreateRequest;
 use Envant\Comments\Requests\UpdateRequest;
 use Envant\Helpers\ModelMapper;
@@ -19,6 +20,19 @@ class CommentController extends Controller
     public function __construct()
     {
         $this->user = auth()->user();
+    }
+
+    /**
+     * @return \Envant\Comments\Resources\CommentResource
+     */
+    public function index(IndexRequest $request)
+    {
+        /** @var \Envant\Comments\HasComments $model */
+        $comments = ModelMapper::getEntity($request->model_type, $request->model_id)
+            ->comments()
+            ->paginate();
+
+        return CommentResource::collection($comments);
     }
 
     /**
