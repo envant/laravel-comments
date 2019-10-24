@@ -12,7 +12,7 @@
     "homepage": "https://github.com/envant/comments",
     "keywords": ["Laravel", "Comments"],
     "require": {
-        "envant/helpers": "dev-master",
+        "envant/helpers": "^0.0.3",
         "illuminate/database": "^5.8|^6.0",
         "illuminate/support": "^5.8|^6.0"
     },
